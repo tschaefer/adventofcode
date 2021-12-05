@@ -87,12 +87,12 @@ sub draw_critical_path {
         if ( $Line->{X1} == $Line->{X2} ) {
             if ( $Line->{Y1} < $Line->{Y2} ) {
                 for my $Y ( $Line->{Y1} .. $Line->{Y2} ) {
-                    $Diagram->[ $Line->{X1} ][$Y]++;
+                    $Diagram->[$Y][ $Line->{X1} ]++;
                 }
             }
             else {
                 for my $Y ( $Line->{Y2} .. $Line->{Y1} ) {
-                    $Diagram->[ $Line->{X1} ][$Y]++;
+                    $Diagram->[$Y][ $Line->{X1} ]++;
                 }
             }
             next;
@@ -101,12 +101,12 @@ sub draw_critical_path {
         if ( $Line->{Y1} == $Line->{Y2} ) {
             if ( $Line->{X1} < $Line->{X2} ) {
                 for my $X ( $Line->{X1} .. $Line->{X2} ) {
-                    $Diagram->[$X][ $Line->{Y1} ]++;
+                    $Diagram->[ $Line->{Y1} ][$X]++;
                 }
             }
             else {
                 for my $X ( $Line->{X2} .. $Line->{X1} ) {
-                    $Diagram->[$X][ $Line->{Y1} ]++;
+                    $Diagram->[ $Line->{Y1} ][$X]++;
                 }
             }
             next;
